@@ -22,8 +22,6 @@ def find_position(command_inputs):
 
 # Part 2
 
-# DOCSTRING
-
 def find_position_with_aim(command_inputs):
     
     depth = 0
