@@ -14,6 +14,8 @@ async function readInput(path) {
 
 // readInput(process.argv[2]);
 
+// PART ONE
+
 async function generateDiagnosticReport(path) {
     let input = await readInput(path);
 
@@ -30,8 +32,6 @@ async function generateDiagnosticReport(path) {
         }
     }
 
-    console.log(zeroes)
-
     for (let key in zeroes) {
         if (zeroes[key] > ones[key]) {
             gamma.push('0');
@@ -45,10 +45,70 @@ async function generateDiagnosticReport(path) {
     let gammaDecimal = gamma.join('');
     let epsilonDecimal = epsilon.join('');
 
-    console.log(parseInt(gammaDecimal, 2) * parseInt(epsilonDecimal, 2));
+    console.log('product of gamma and epsilon:', parseInt(gammaDecimal, 2) * parseInt(epsilonDecimal, 2));
 
     return;
     
 }
 
 generateDiagnosticReport(process.argv[2])
+
+// PART TWO
+
+// Examine the first bit
+// Keep only numbers which meet the criteria
+// When only one number is left, stop, this is the value
+// Otherwise, repeat considering the next  bit to the right.
+
+// CRITERIA:
+
+// 
+
+async function findOxygenandC02Ratings(path) {
+    let input = await readInput(path);
+
+    input.sort();
+
+    await searchAndRemove(input);
+
+    return;
+
+
+}
+
+async function searchAndRemove(input) {
+
+    console.log('entering search')
+    console.log(input)
+
+    if (input.length === 1) return input[0];
+
+    let start = 0;
+    let end = input.length-1
+    let mid = Math.floor((input.length-1)/2)
+
+    if (input[mid][0] === '0') {
+        console.log('entering 0 block')
+        for (let i = mid; i < input.length; i++) {
+            if (input[i][0] === '1') {
+                console.log('index:', i)
+                return input[i]
+            }
+        }
+    }
+
+    if (input[mid][0] === '1') {
+        console.log('entering 1 block')
+        for (let i = start; i < input.mid; i++) {
+            if (input[i][0] === '0') {
+                console.log('index:', i)
+                return input[i]
+            }
+        }
+    }
+    
+    return;
+
+}
+
+findOxygenandC02Ratings(process.argv[2])
