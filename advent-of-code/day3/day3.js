@@ -60,7 +60,7 @@ generateDiagnosticReport(process.argv[2])
 // When only one number is left, stop, this is the value
 // Otherwise, repeat considering the next  bit to the right.
 
-// CRITERIA:
+// PLAN: implement a recursive function that sorts and then splices as you proceed thru indexes
 
 // 
 
@@ -99,7 +99,7 @@ async function searchAndRemove(input) {
 
     if (input[mid][0] === '1') {
         console.log('entering 1 block')
-        for (let i = start; i < input.mid; i++) {
+        for (let i = mid; i > -1; i--) {
             if (input[i][0] === '0') {
                 console.log('index:', i)
                 return input[i]
@@ -112,3 +112,4 @@ async function searchAndRemove(input) {
 }
 
 findOxygenandC02Ratings(process.argv[2])
+
